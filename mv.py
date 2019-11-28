@@ -16,12 +16,10 @@ def login():
     browser.submit_form(login_form)
     return browser
 
-def postScreenshot(imageLink):
+def postScreenshot(cuerpo):
     config.read('auth.ini')
     mv_thread=config.get('mediavida', 'screenshotsThreadURL')
     browser.open(mv_thread)
     post_form = browser.get_form(id='postear')
-    post_form["cuerpo"] = "[spoiler=Nuevas Capturas][img][/img][/spoiler]"
+    post_form["cuerpo"] = "[spoiler=Nuevas Capturas]"+ cuerpo+ "[/spoiler]"
     browser.submit_form(post_form)
-
-

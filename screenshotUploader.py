@@ -1,15 +1,13 @@
 import os
 import glob
 import json
-from upload import upload_image
-from auth import authenticate
-
-
+import mv
 
 currentFiles = glob.glob("*png")
 
-
 imagesToUpload=[]
+
+final =
 
 def updateFiles():
     with open('lastFiles.txt', 'w+') as filehandle:
@@ -32,10 +30,9 @@ if len(newImages) > 0:
         imageURL = str("{0}".format(image['link']))
         imagesToUpload.append(imageURL)
 
-    print("Image links are:")
     for item in imagesToUpload:
-        print(item)
-
+        itemtopost = "[IMG]" + item + "[/IMG]"
+        final.append(itemtopost)
     updateFiles()
 else:
     print("There are no new images")
